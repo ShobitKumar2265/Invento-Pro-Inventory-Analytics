@@ -133,9 +133,9 @@ def detect_col(df, names):
 @st.cache_data
 def load_default():
     try:
-        s = pd.read_csv(r"C:\\Users\\shobi\\Desktop\\8th sem Project\\sales_data.csv", parse_dates=['Sale_Date'])
-        p = pd.read_csv(r"C:\\Users\\shobi\\Desktop\\8th sem Project\\products_data.csv")
-        i = pd.read_csv(r"C:\\Users\\shobi\\Desktop\\8th sem Project\\inventory_data.csv", parse_dates=['Record_Date'])
+       s = pd.read_csv("sales_data.csv", parse_dates=['Sale_Date'])
+        p = pd.read_csv("products_data.csv")
+        i = pd.read_csv("inventory_data.csv", parse_dates=['Record_Date']) 
         if 'Revenue' in s.columns and 'COGS' in s.columns: s['Gross_Profit'] = s['Revenue'] - s['COGS']
         if 'Sale_Date' in s.columns: s['Month'] = s['Sale_Date'].dt.to_period('M')
         return s, p, i
