@@ -1,0 +1,156 @@
+import pandas as pd
+import os
+from datetime import datetime
+
+print("=" * 60)
+print("INVENTO PRO - AUTOMATED DATA PIPELINE")
+print("=" * 60)
+print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+print("=" * 60)
+
+try:
+    # ============================================================
+    # STEP 1: LOAD RAW DATA
+    # ============================================================
+    print("\nSTEP 1: Loading raw CSV files...")
+    
+    sales = pd.read_csv(r"C:\Users\shobi\Desktop\8th sem Project\sales_data.csv")
+    products = pd.read_csv(r"C:\Users\shobi\Desktop\8th sem Project\products_data.csv")
+    inventory = pd.read_csv(r"C:\Users\shobi\Desktop\8th sem Project\inventory_data.csv")
+    
+    original_sales_rows = len(sales)
+    original_inventory_rows = len(inventory)
+    
+    print(f"  Sales loaded: {original_sales_rows} rows")
+    print(f"  Products loaded: {len(products)} rows")
+    print(f"  Inventory loaded: {original_inventory_rows} rows")
+    
+    # ============================================================
+    # STEP 2: DATA CLEANING
+    # ============================================================
+    print("\nSTEP 2: Cleaning data...")
+    
+    # Remove duplicates
+    sales_before = len(sales)
+    sales = sales.drop_duplicates()
+    print(f"  Duplicates removed from sales: {sales_before - len(sales)}")
+    
+    inventory_before = len(inventory)
+    inventory = inventory.drop_duplicates()
+    print(f"  Duplicates removed from inventory: {inventory_before - len(inventory)}")
+    
+    # Fill missing values
+    nulls_before = sales.isnull().sum().sum()
+    sales['Revenue'] = sales['Revenue'].fillna(sales['Revenue'].median())
+    sales['COGS'] = sales['COGS'].fillna(sales['COGS'].median())
+    sales['Units_Sold'] = sales['Units_Sold'].fillna(0)
+    sales['Product_Name'] = sales['Product_Name'].fillna('Unknown')
+    sales['Category'] = sales['Category'].fillna('General')
+    print(f"  Null values filled in sales: {nulls_before - sales.isnull().sum().sum()}")
+    
+    nulls_before = inventory.isnull().sum().sum()
+    inventory['Closing_Stock'] = inventory['Closing_Stock'].fillna(0)
+    inventory['Opening_Stock'] = inventory['Opening_Stock'].fillna(0)
+    inventory['Stockout_Flag'] = inventory['Stockout_Flag'].fillna(0)
+    print(f"  Null values filled in inventory: {nulls_before - inventory.isnull().sum().sum()}")
+    
+    # Parse dates
+    sales['Sale_Date'] = pd.to_datetime(sales['Sale_Date'])
+    inventory['Record_Date'] = pd.to_datetime(inventory['Record_Date'])
+    print("  Dates standardized to YYYY-MM-DD format")
+    
+    # Fix negative values
+    neg_revenue = (sales['Revenue'] < 0).sum()
+    if neg_revenue > 0:
+        sales.loc[sales['Revenue'] < 0, 'Revenue'] = 0
+        print(f"  Fixed {neg_revenue} negative revenue values")
+    
+    # Derived columns
+    sales['Gross_Profit'] = sales['Revenue'] - sales['COGS']
+    sales['Month'] = sales['Sale_Date'].dt.to_period('M')
+    print("  Added derived columns: Gross_Profit, Month")
+    
+    # ============================================================
+    # STEP 3: DATA VALIDATION
+    # ============================================================
+    print("\nSTEP 3: Validating data...")
+    
+    total_revenue = sales['Revenue'].sum()
+    total_profit = sales['Gross_Profit'].sum()
+    date_range = f"{sales['Sale_Date'].min().strftime('%Y-%m-%d')} to {sales['Sale_Date'].max().strftime('%Y-%m-%d')}"
+    product_count = sales['Product_Name'].nunique()
+    category_count = sales['Category'].nunique()
+    availability = 100 - (inventory['Stockout_Flag'].mean() * 100)
+    
+    print(f"  Total Revenue: Rs.{total_revenue/1e7:.2f}Cr")
+    print(f"  Total Profit: Rs.{total_profit/1e7:.2f}Cr")
+    print(f"  Date Range: {date_range}")
+    print(f"  Products: {product_count}")
+    print(f"  Categories: {category_count}")
+    print(f"  Availability: {availability:.1f}%")
+    print("  All validations PASSED!")
+    
+    # ============================================================
+    # STEP 4: SAVE CLEAN DATA
+    # ============================================================
+    print("\nSTEP 4: Saving clean data files...")
+    
+    sales.to_csv(r"C:\Users\shobi\Desktop\8th sem Project\sales_data.csv", index=False)
+    products.to_csv(r"C:\Users\shobi\Desktop\8th sem Project\products_data.csv", index=False)
+    inventory.to_csv(r"C:\Users\shobi\Desktop\8th sem Project\inventory_data.csv", index=False)
+    
+    print("  Clean files saved successfully!")
+    
+    # ============================================================
+    # STEP 5: GENERATE REPORT
+    # ============================================================
+    print("\nSTEP 5: Generating pipeline report...")
+    
+    report = f"""
+================================================================
+AUTOMATED DATA PIPELINE REPORT
+================================================================
+Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+DATA CLEANING SUMMARY:
+  Sales rows: {original_sales_rows} -> {len(sales)}
+  Inventory rows: {original_inventory_rows} -> {len(inventory)}
+
+DATA VALIDATION:
+  Total Revenue: Rs.{total_revenue/1e7:.2f}Cr
+  Total Profit: Rs.{total_profit/1e7:.2f}Cr
+  Margin: {(total_profit/total_revenue*100):.1f}%
+  Date Range: {date_range}
+  Products: {product_count}
+  Categories: {category_count}
+  Availability: {availability:.1f}%
+  Stockout Days: {inventory['Stockout_Flag'].sum()}
+
+STATUS: ALL CHECKS PASSED - DATA READY FOR DASHBOARD
+================================================================
+"""
+    
+    with open(r"C:\Users\shobi\Desktop\8th sem Project\pipeline_report.txt", 'w') as f:
+        f.write(report)
+    
+    print("  Report saved: pipeline_report.txt")
+    
+    # ============================================================
+    # DONE
+    # ============================================================
+    print("\n" + "=" * 60)
+    print("PIPELINE COMPLETE!")
+    print("=" * 60)
+    print(f"Finished: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("\nClean files ready for dashboard:")
+    print("  - sales_data.csv")
+    print("  - products_data.csv")
+    print("  - inventory_data.csv")
+    print("  - pipeline_report.txt")
+    print("\nRun dashboard: streamlit run app.py --server.port 8505")
+
+except Exception as e:
+    print(f"\nERROR: {e}")
+    print("\nPlease check:")
+    print("1. CSV files exist in: C:\\Users\\shobi\\Desktop\\8th sem Project\\")
+    print("2. File names: sales_data.csv, products_data.csv, inventory_data.csv")

@@ -1,0 +1,5 @@
+# Step 1: Folder mein jao
+cd "C:\Users\shobi\Desktop\Python Program\files (1)"
+
+# Step 2: Streamlit run karo
+streamlit run app.py

@@ -1,0 +1,23 @@
+
+================================================================
+AUTOMATED DATA PIPELINE REPORT
+================================================================
+Generated: 2026-06-01 21:17:49
+
+DATA CLEANING SUMMARY:
+  Sales rows: 8121 -> 8121
+  Products rows: 75 -> 75
+  Inventory rows: 13800 -> 13800
+
+DATA VALIDATION RESULTS:
+  Total Revenue: Rs.53.42Cr
+  Total Profit: Rs.24.84Cr
+  Profit Margin: 46.5%
+  Date Range: 2024-07-01 to 2024-12-31
+  Products: 75
+  Categories: 5
+  Stockout Days: 5184
+  Availability: 62.4%
+
+STATUS: ALL CHECKS PASSED - DATA READY FOR DASHBOARD
+================================================================

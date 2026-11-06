@@ -1,0 +1,76 @@
+Product_ID,Product_Name,Category,Unit_Cost,Selling_Price,Reorder_Point,Lead_Time_Days,Safety_Stock,Max_Stock_Level,Supplier
+P1001,"Laptop 15""",Electronics,5133.44,6327.04,55,6,24,271,Supplier_2
+P1002,"Laptop 13""",Electronics,5429.76,12813.33,31,12,37,216,Supplier_1
+P1003,Wireless Mouse,Electronics,794.88,1194.27,97,3,45,301,Supplier_7
+P1004,USB Hub,Electronics,1802.5,3543.8,20,5,37,374,Supplier_5
+P1005,Webcam HD,Electronics,1286.06,3143.62,63,4,15,394,Supplier_2
+P1006,Keyboard Mech,Electronics,2903.89,4783.12,53,3,39,474,Supplier_2
+P1007,"Monitor 24""",Electronics,7786.27,13175.11,90,7,50,385,Supplier_4
+P1008,Headphones BT,Electronics,5651.35,7118.28,49,7,15,319,Supplier_2
+P1009,"Tablet 10""",Electronics,3072.0,5497.14,66,5,33,381,Supplier_4
+P1010,Smartphone X,Electronics,5377.89,11360.07,29,12,50,287,Supplier_4
+P1011,Power Bank,Electronics,1349.05,2284.34,91,6,30,228,Supplier_4
+P1012,Smart Watch,Electronics,6583.33,14789.84,71,7,14,308,Supplier_6
+P1013,Earbuds Pro,Electronics,1740.38,3217.96,78,5,26,271,Supplier_4
+P1014,Router WiFi,Electronics,5972.66,11352.06,94,9,47,404,Supplier_6
+P1015,SSD 1TB,Electronics,1793.6,4478.26,85,10,15,224,Supplier_2
+P1016,RAM 16GB,Electronics,1265.09,1781.22,74,12,14,397,Supplier_7
+P1017,Graphics Card,Electronics,4787.31,8657.68,52,11,10,258,Supplier_5
+P1018,CPU Cooler,Electronics,6160.36,10116.72,57,9,20,432,Supplier_1
+P1019,Gaming Chair,Electronics,7632.84,17850.23,53,11,21,459,Supplier_2
+P1020,LED Strip,Electronics,6970.62,11069.19,84,12,22,278,Supplier_6
+P1021,Men Shirt L,Clothing,6111.96,11620.01,87,3,48,365,Supplier_8
+P1022,Men Shirt M,Clothing,204.84,493.22,59,6,13,323,Supplier_2
+P1023,Women Kurti,Clothing,730.94,1338.93,28,11,18,265,Supplier_8
+P1024,Jeans Blue 32,Clothing,7577.45,10719.55,87,12,37,308,Supplier_4
+P1025,Jeans Black 34,Clothing,5717.94,9827.37,67,10,43,431,Supplier_2
+P1026,Jacket Winter,Clothing,2020.85,2593.22,22,12,45,317,Supplier_4
+P1027,Saree Cotton,Clothing,107.17,227.22,27,6,14,216,Supplier_6
+P1028,Formal Suit,Clothing,613.32,925.75,82,6,44,267,Supplier_8
+P1029,Sports Tshirt,Clothing,1981.83,3596.75,72,6,16,249,Supplier_7
+P1030,Kids Frock,Clothing,2866.67,4972.05,26,13,16,231,Supplier_7
+P1031,Socks Pack 6,Clothing,5839.3,13084.53,33,6,22,297,Supplier_8
+P1032,Cap Sports,Clothing,1164.45,1675.1,79,6,14,426,Supplier_2
+P1033,Scarf Wool,Clothing,452.18,1130.03,21,4,25,285,Supplier_7
+P1034,Gloves Leather,Clothing,3910.85,5779.73,71,3,20,394,Supplier_1
+P1035,Belt Premium,Clothing,7883.21,12177.7,78,7,37,484,Supplier_8
+P1036,Basmati Rice 5kg,Groceries,1280.63,2030.72,27,12,44,231,Supplier_6
+P1037,Wheat Flour 10kg,Groceries,504.46,988.45,84,11,20,229,Supplier_2
+P1038,Cooking Oil 5L,Groceries,6818.17,8789.15,28,13,25,406,Supplier_2
+P1039,Sugar 5kg,Groceries,7535.69,14623.59,94,12,12,241,Supplier_7
+P1040,Dal Toor 2kg,Groceries,5276.12,10208.21,60,7,23,360,Supplier_4
+P1041,Tea Leaves 500g,Groceries,2161.64,2961.75,58,10,30,237,Supplier_1
+P1042,Coffee 200g,Groceries,3693.37,9226.0,32,4,44,309,Supplier_5
+P1043,Biscuits Pack,Groceries,1103.03,1824.09,28,6,33,345,Supplier_3
+P1044,Namkeen 500g,Groceries,3533.57,6735.63,58,12,43,204,Supplier_5
+P1045,Spice Mix,Groceries,7457.46,9953.19,37,7,17,254,Supplier_3
+P1046,Honey 500g,Groceries,2215.17,4399.95,63,6,50,335,Supplier_8
+P1047,Ghee 1kg,Groceries,2046.41,4871.7,26,4,50,416,Supplier_5
+P1048,Oats 1kg,Groceries,400.49,654.25,36,13,26,282,Supplier_8
+P1049,Cornflakes 500g,Groceries,4435.86,7789.34,21,4,14,276,Supplier_1
+P1050,Pasta 500g,Groceries,6685.03,13084.36,38,9,18,221,Supplier_5
+P1051,Pressure Cooker,Home & Kitchen,2948.98,7115.93,25,8,23,327,Supplier_2
+P1052,Non-Stick Pan,Home & Kitchen,2861.75,5517.02,72,12,19,321,Supplier_3
+P1053,Water Bottle,Home & Kitchen,7810.84,17605.66,72,3,21,370,Supplier_7
+P1054,Lunch Box Set,Home & Kitchen,6427.77,14933.53,51,7,20,255,Supplier_7
+P1055,Bedsheet King,Home & Kitchen,6983.73,16175.51,48,6,39,379,Supplier_5
+P1056,Pillow Soft,Home & Kitchen,6573.26,15333.57,48,3,22,404,Supplier_6
+P1057,Curtain Set,Home & Kitchen,2264.89,2922.27,55,8,42,404,Supplier_6
+P1058,Cleaning Mop,Home & Kitchen,7516.94,10147.45,53,5,47,335,Supplier_1
+P1059,Dustbin 20L,Home & Kitchen,911.8,1609.27,60,9,48,461,Supplier_2
+P1060,Air Freshener,Home & Kitchen,3112.3,6067.63,52,3,37,200,Supplier_4
+P1061,Mixer Grinder,Home & Kitchen,2945.56,3802.62,62,12,30,263,Supplier_5
+P1062,Toaster,Home & Kitchen,4081.62,8436.55,61,9,28,483,Supplier_3
+P1063,Kettle Elect,Home & Kitchen,1575.13,3251.71,68,13,21,491,Supplier_5
+P1064,Ironing Board,Home & Kitchen,3278.3,7487.12,58,7,23,420,Supplier_6
+P1065,Storage Box,Home & Kitchen,3746.66,6649.6,47,11,40,286,Supplier_2
+P1066,Cricket Bat,Sports,2306.1,4757.51,99,8,15,320,Supplier_5
+P1067,Football,Sports,1835.89,2678.32,23,3,25,443,Supplier_2
+P1068,Yoga Mat,Sports,3670.56,8633.08,93,6,34,453,Supplier_7
+P1069,Dumbbells 5kg,Sports,1989.68,4084.57,20,4,37,312,Supplier_3
+P1070,Skipping Rope,Sports,6442.67,13559.79,79,3,45,327,Supplier_2
+P1071,Badminton Set,Sports,3678.87,8247.44,87,11,48,362,Supplier_8
+P1072,Cycle Helmet,Sports,4920.59,10505.74,84,9,45,428,Supplier_3
+P1073,Running Shoes,Sports,5962.06,10833.52,53,6,50,341,Supplier_8
+P1074,Gym Gloves,Sports,5032.65,7835.72,29,14,28,320,Supplier_5
+P1075,Protein Shaker,Sports,2719.99,6421.72,30,5,19,318,Supplier_7
